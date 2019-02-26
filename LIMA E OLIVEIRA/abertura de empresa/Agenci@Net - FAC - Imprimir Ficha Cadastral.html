@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html data-ng-app="FAC" data-agt-area-acesso="publica" class="ng-scope"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style>
+    <title>Agenci@Net - FAC - Imprimir Ficha Cadastral</title>
+
+    <meta name="fragment" content="!">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="prefetch" href="http://publica.agnet.fazenda.df.gov.br//FAC/SolicitarInscricao/'~/Imagens/ajax-loader3.gif">
+    <link rel="stylesheet" href="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/agt.css" data-contraste="/Css/agt-contraste.min.css">
+    <link rel="stylesheet" href="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/angular-loading-bar.css">
+
+    
+    
+
+</head>
+<body class="aud">
+    <div class="carregando ng-isolate-scope">                     <div id="bloqueio-tela" class="bloqueio-tela ng-hide" ng-show="isLoading()" style=""></div>                     <div id="caixa-carregando" class="caixa-carregando ng-hide" ng-show="isLoading()" style="">                         <div class="caixa-carregando-conteudo">                             <img src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/ajax-loader3.gif">                             <span>                                 <h4 style="display: inline">                                     <b>carregando</b>                                 </h4>                             </span>                         </div>                     </div></div>
+    <div>
+        <div class="container-fluid">
+            
+
+
+
+
+
+
+<div ng-controller="AbasController" class="ng-scope">
+    <ul class="nav nav-tabs hidden-print" ng-hide="esconderAbas" role="tablist" style="">
+        <li id="li-Passo1" ng-class="{active: passo == 'Passo1'}" class="">
+            <a href="#" id="passo1" ng-click="selecionarPasso('/Passo1', $event)">Identificação</a>
+        </li>
+        <li id="li-Passo2" ng-class="{active: passo == 'Passo2', disabled: !registrado}" class="">
+            <a href="#" id="passo2" ng-click="selecionarPasso('/Passo2', $event)">Estabelecimento</a>
+        </li>
+        <li id="li-Passo3" ng-class="{active: passo == 'Passo3', disabled: !registrado}" class="">
+            <a href="#" id="passo3" ng-click="selecionarPasso('/Passo3', $event)">Qualificação</a>
+        </li>
+        <li id="li-Passo4" ng-class="{active: passo == 'Passo4', disabled: !registrado}" class="">
+            <a href="#" id="passo4" ng-click="selecionarPasso('/Passo4', $event)">Contabilista</a>
+        </li>
+        <li id="li-Passo5" ng-class="{active: passo == 'Passo5', disabled: !registrado}" class="">
+            <a href="#" id="passo5" ng-click="selecionarPasso('/Passo5', $event)">Quadro societário</a>
+        </li>
+        <li id="li-Passo6" ng-class="{active: passo == 'Passo6', disabled: !registrado}" class="">
+            <a href="#" id="passo6" ng-click="selecionarPasso('/Passo6', $event)">Administrador não sócio</a>
+        </li>
+        <li id="li-Passo7" ng-class="{active: passo == 'Passo7', disabled: !registrado}" class="">
+            <a href="#" id="passo7" ng-click="selecionarPasso('/Passo7', $event)">Regime</a>
+        </li>
+        <li id="li-Passo8" ng-class="{active: passo == 'Passo8', disabled: !registrado}" class="">
+            <a href="#" id="passo8" ng-click="selecionarPasso('/Passo8', $event)">Relatório de crítica</a>
+        </li>
+        <li id="li-Passo9" ng-class="{active: passo == 'Passo9', disabled: !registrado}" class="active">
+            <a href="#" id="passo9" ng-click="selecionarPasso('/Passo9', $event)">Imprimir ficha</a>
+        </li>
+        <li id="li1" ng-class="{active: passo == 'Passo10', disabled: !registrado}" class="">
+            <a href="#" id="A1" ng-click="selecionarPasso('/Passo10', $event)">Enviar solicitação</a>
+        </li>
+    </ul>
+    <div class="tab-content" ng-init="goto='SolicitarInscricao'">
+        <!-- ngView:  --><div class="tab-pane active ng-scope" ng-view=""><!-- ngIf: ctrl.exibirCriticas -->
+
+<!-- ngIf: !ctrl.exibirCriticas --><header ng-if="!ctrl.exibirCriticas" class="panel-heading ng-scope">
+    <h3 class="">Imprimir ficha cadastral</h3>
+</header><!-- end ngIf: !ctrl.exibirCriticas -->
+<section data-agt-form-notificacao="passo9" class="ng-scope ng-isolate-scope"><article>
+    <!-- ngRepeat: alerta in notificacao.alertas -->
+</article>
+</section>
+
+<section class="panel panel-default ng-scope">
+    <article class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Número do Nas:</dt>
+            <dd class="ng-binding"> 2224221</dd>
+        </dl>
+            <dl class="dl-horizontal">
+                <dt>Número do Nas:</dt>
+                <dd class="ng-binding"> 2224221</dd>
+                <dt>CPF/CNPJ:</dt>
+                <dd data-data-agt-fac-critica-campo="4" class="ng-binding"> ?????</dd>
+                <dt>CF/DF:</dt>
+                <dd data-data-agt-fac-critica-campo="1" class="ng-binding"> ?????</dd>
+                <dt>Nome/Razão social:</dt>
+                <dd data-data-agt-fac-critica-campo="0" class="ng-binding"> LIMA E OLIVEIRA CONTABILIDADE LTDA ME</dd>
+            </dl>
+</article>
+</section>
+
+<section ng-hide="!ctrl.exibirCriticas" class="bs-callout bs-callout-warning ng-scope ng-hide">
+    <p>Os campos sinalizados <a>em vermelho</a> indicam algum problema no preenchimento da FAC.</p>
+</section>
+
+<section class="panel panel-default ng-scope">
+    <header class="panel-heading">
+        <h4 class="panel-title">Identificação</h4>
+    </header>
+    <article class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Situação do contribuinte:</dt>
+            <dd data-data-agt-fac-critica-campo="1" class="ng-binding">
+                EM HOMOLOGACAO
+            </dd>
+            <dt>Nome fantasia:</dt>
+            <dd data-data-agt-fac-critica-campo="2" class="ng-binding">
+                L &amp; O CONTADORES ASSOCIADOS
+            </dd>
+            <dt>Tipo de contribuinte:</dt>
+            <dd data-data-agt-fac-critica-campo="3" class="ng-binding">
+                06-SOCIEDADE EMPRESARIA LIMITADA
+            </dd>
+            <dt>Número do NIRE:</dt>
+            <dd data-data-agt-fac-critica-campo="5" class="ng-binding">
+                ?????
+            </dd>
+            <dt>Data do NIRE:</dt>
+            <dd data-data-agt-fac-critica-campo="6" class="ng-binding">
+                16/03/2018
+            </dd>
+            <dt>Tipo de contrato:</dt>
+            <dd data-data-agt-fac-critica-campo="7" class="ng-binding">
+                CONSTITUICAO
+            </dd>
+            <dt>E-mail do contribuinte:</dt>
+            <dd data-data-agt-fac-critica-campo="8" class="ng-binding">
+                limaeoliveiracontadores@gmail.com
+            </dd>
+        </dl>
+    </article>
+</section>
+
+<section class="panel panel-default ng-scope">
+    <header class="panel-heading">
+        <h4 class="panel-title">Estabelecimento</h4>
+    </header>
+    <article class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Inscrição no IPTU:</dt>
+            <dd data-data-agt-fac-critica-campo="9" class="ng-binding"> 48333360</dd>
+            <dt>Tipo de endereço:</dt>
+            <dd data-data-agt-fac-critica-campo="12" class="ng-binding">
+                1-COMERCIAL
+            </dd>
+            <dt>Logradouro:</dt>
+            <dd data-data-agt-fac-critica-campo="14" class="ng-binding">
+                SAU/S QD 3 BL C NUMERO 22 SALA 605
+            </dd>
+            <dt>Bairro</dt>
+            <dd data-data-agt-fac-critica-campo="15" class="ng-binding">
+                ASA SUL
+            </dd>
+            <dt>Cidade:</dt>
+            <dd data-data-agt-fac-critica-campo="16" class="ng-binding">
+                BRASILIA
+            </dd>
+            <dt>UF:</dt>
+            <dd data-data-agt-fac-critica-campo="17" class="ng-binding">
+                DF
+            </dd>
+            <dt>DDD:</dt>
+            <dd data-data-agt-fac-critica-campo="18" class="ng-binding">
+                061
+            </dd>
+            <dt>Telefone:</dt>
+            <dd data-data-agt-fac-critica-campo="19" class="ng-binding">
+                9271-5318
+            </dd>
+            <dt>CEP:</dt>
+            <dd data-data-data-agt-fac-critica-campo="13" class="ng-binding">
+                70.070-934
+            </dd>
+            <dt>Possui alvará:</dt>
+            <dd data-data-agt-fac-critica-campo="10" class="ng-binding">
+                NAO</dd>
+            <dt>Dias/Horário de funcionamento:</dt>
+            <dd data-data-agt-fac-critica-campo="21" class="ng-binding">
+                segunda a sexta de 08:00 as 18:00</dd>
+            <dt>Unidade auxiliar:</dt>
+            <dd data-data-agt-fac-critica-campo="22" class="ng-binding">
+                SD-SEDE</dd>
+        </dl>
+    </article>
+</section>
+
+<section class="panel panel-default ng-scope">
+    <header class="panel-heading">
+        <h4 class="panel-title">Qualificação</h4>
+    </header>
+    <article class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Contribuinte sujeito a:</dt>
+            <dd data-data-agt-fac-critica-campo="23" class="ng-binding">
+                ISS EMPRESA</dd>
+            <dt>Categoria do estabelecimento:</dt>
+            <dd data-data-agt-fac-critica-campo="24" class="ng-binding">
+                MATRIZ</dd>
+            <dt>Inscrição da matriz:</dt>
+            <dd data-data-agt-fac-critica-campo="26" class="ng-binding">
+                ?????</dd>
+            <dt>Matriz em outro estado?</dt>
+            <dd data-data-agt-fac-critica-campo="25" class="ng-binding">
+                Não</dd>
+            <dt>Capital social R$:</dt>
+            <dd data-data-agt-fac-critica-campo="27" class="ng-binding">
+                20.000,00</dd>
+            <dt>Data de constituição:</dt>
+            <dd data-data-agt-fac-critica-campo="28" class="ng-binding">
+                16/03/2018</dd>
+        </dl>
+    </article>
+</section>
+
+<section class="panel panel-default ng-scope ng-hide" ng-show="ctrl.opcoes.mostrarISS">
+    <header class="panel-heading">
+        <h4 class="panel-title">Atividade econômica - ISS</h4>
+    </header>
+    <article class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>CNAE-Fiscal:</dt>
+            <dd data-data-agt-fac-critica-campo="29" class="ng-binding">
+                M6920-6/01-00</dd>
+            <dt>Descrição da atividade:</dt>
+            <dd data-data-agt-fac-critica-campo="30" class="ng-binding">
+                Atividades de contabilidade
+            </dd>
+            <dt>Data de início:</dt>
+            <dd data-data-agt-fac-critica-campo="31" class="ng-binding">
+                2018-03-16T00:00:00
+            </dd>
+            <dt>Registro no órgão de classe:</dt>
+            <dd data-data-agt-fac-critica-campo="32" class="ng-binding">
+                SIM
+            </dd>
+            <dt>Sigla:</dt>
+            <dd data-data-agt-fac-critica-campo="33" class="ng-binding">
+                CRC
+            </dd>
+            <dt>UF:</dt>
+            <dd data-data-agt-fac-critica-campo="34" class="ng-binding">
+                DF
+            </dd>
+        </dl>
+    </article>
+</section>
+
+<section class="panel panel-default ng-scope ng-hide" ng-show="ctrl.opcoes.mostrarICMS">
+    <header class="panel-heading">
+        <h4 class="panel-title">Atividade econômica - ICMS</h4>
+    </header>
+    <article class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>CNAE-Fiscal:</dt>
+            <dd data-data-agt-fac-critica-campo="35" class="ng-binding">
+                ?????
+            </dd>
+            <dt>Descrição da atividade:</dt>
+            <dd data-data-agt-fac-critica-campo="36" class="ng-binding">
+                ?????
+            </dd>
+            <dt>Data de início:</dt>
+            <dd data-data-agt-fac-critica-campo="37" class="ng-binding">
+                ?????
+            </dd>
+        </dl>
+    </article>
+</section>
+
+<section class="panel panel-default ng-scope ng-hide" ng-show="ctrl.opcoes.mostrarAtividadesSecundarias">
+    <header class="panel-heading">
+        <h4 class="panel-title">Atividade secundária</h4>
+    </header>
+    <article class="panel-body">
+        <!-- ngRepeat: ativ in ctrl.atividadesSecundarias -->
+    </article>
+</section>
+
+<section class="panel panel-default ng-scope">
+    <header class="panel-heading">
+        <h4 class="panel-title">Contador/Contabilista</h4>
+    </header>
+    <article class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Vínculo com o contribuinte:</dt>
+            <dd data-data-agt-fac-critica-campo="69" class="ng-binding">
+                EMPREGADO
+            </dd>
+            <dt>Inscrição CF/DF:</dt>
+            <dd data-data-agt-fac-critica-campo="70" class="ng-binding">
+                ?????
+            </dd>
+            <dt>Livros fiscais no escritório:</dt>
+            <dd data-data-agt-fac-critica-campo="71" class="ng-binding">
+                NAO
+            </dd>
+            <dt>Data de início da escrituração: </dt>
+            <dd data-data-agt-fac-critica-campo="72" class="ng-binding">
+                03/2018
+            </dd>
+            <dt>CPF/CNPJ:</dt>
+            <dd data-data-agt-fac-critica-campo="73" class="ng-binding">
+                636.200.301-20
+            </dd>
+            <dt>Nome/Razão social:</dt>
+            <dd data-data-agt-fac-critica-campo="74" class="ng-binding">
+                UAIRES LIMA DA SILVA
+            </dd>
+            <dt>Logradouro:</dt>
+            <dd data-data-agt-fac-critica-campo="76" class="ng-binding">
+                QUADRA 1 CONJUNTO F
+            </dd>
+            <dt>Bairro:</dt>
+            <dd data-data-agt-fac-critica-campo="77" class="ng-binding">
+                COND IMPERIO DOS NOBR
+            </dd>
+            <dt>Cidade:</dt>
+            <dd data-data-agt-fac-critica-campo="78" class="ng-binding">
+                BRASILIA
+            </dd>
+            <dt>UF:</dt>
+            <dd data-data-agt-fac-critica-campo="79" class="ng-binding">
+                DF
+            </dd>
+            <dt>DDD:</dt>
+            <dd data-data-agt-fac-critica-campo="80" class="ng-binding">
+                61
+            </dd>
+            <dt>Telefone:</dt>
+            <dd data-data-agt-fac-critica-campo="81" class="ng-binding">
+                8292-5270
+            </dd>
+            <dt>CEP:</dt>
+            <dd data-data-agt-fac-critica-campo="75" class="ng-binding">
+                73.252-122
+            </dd>
+            <dt>Registro no CRC:</dt>
+            <dd data-data-agt-fac-critica-campo="82" class="ng-binding">
+                012712
+            </dd>
+            <dt>UF:</dt>
+            <dd data-data-agt-fac-critica-campo="83" class="ng-binding">
+                DF
+            </dd>
+        </dl>
+    </article>
+</section>
+
+<section class="panel panel-default ng-scope" ng-show="ctrl.socios != null &amp;&amp; ctrl.socios.length &gt; 0" style="">
+    <header class="panel-heading">
+       <h4 class="panel-title">Quadro societário</h4>
+    </header>
+    <article class="panel-body">
+        <!-- ngRepeat: socio in ctrl.socios --><article ng-repeat="socio in ctrl.socios" class="ng-scope">
+            <dl class="dl-horizontal">
+                <dt>Número:</dt>
+                <dd data-data-agt-fac-critica-campo="1" class="ng-binding">
+                    2224221
+                </dd>
+                <dt>CPF/CNPJ:</dt>
+                <dd data-data-agt-fac-critica-campo="84" class="ng-binding">
+                    03535280133
+                </dd>
+                <dt>Resp. pela assinatura da FAC:</dt>
+                <dd data-data-agt-fac-critica-campo="85" class="ng-binding">
+                    Sim
+                </dd>
+                <dt>Nome:</dt>
+                <dd data-data-agt-fac-critica-campo="86" class="ng-binding">
+                    LENANDA MAYARA BARBOSA OLIVEIRA
+                </dd>
+                <dt>RG:</dt>
+                <dd data-data-agt-fac-critica-campo="87" class="ng-binding">
+                    3092574
+                </dd>
+                <dt>Orgão expedidor:</dt>
+                <dd data-data-agt-fac-critica-campo="88" class="ng-binding">
+                    SESP
+                </dd>
+                <dt>UF:</dt>
+                <dd data-data-agt-fac-critica-campo="89" class="ng-binding">
+                    DF
+                </dd>
+                <dt>Data expedição:</dt>
+                <dd data-data-agt-fac-critica-campo="90" class="ng-binding">
+                    18/08/2015
+                </dd>
+                <dt>Logradouro:</dt>
+                <dd data-data-agt-fac-critica-campo="92" class="ng-binding">
+                    SGAN 912 MODULO C BLOCO E APT 04
+                </dd>
+                <dt>Bairro:</dt>
+                <dd data-data-agt-fac-critica-campo="93" class="ng-binding">
+                    ASA NORTE
+                </dd>
+                <dt>Cidade:</dt>
+                <dd data-data-agt-fac-critica-campo="94" class="ng-binding">
+                    BRASILIA
+                </dd>
+                <dt>UF:</dt>
+                <dd data-data-agt-fac-critica-campo="95" class="ng-binding">
+                    DF
+                </dd>
+                <dt>DDD:</dt>
+                <dd data-data-agt-fac-critica-campo="96" class="ng-binding">
+                    61
+                </dd>
+                <dt>Telefone:</dt>
+                <dd data-data-agt-fac-critica-campo="97" class="ng-binding">
+                    9271-5318
+                </dd>
+                <dt>CEP:</dt>
+                <dd data-agt-fac-critica-campo="91" class="ng-binding vermelho">
+                    70.790-123</dd>
+                <dt>Cargo:</dt>
+                <dd data-data-agt-fac-critica-campo="98" class="ng-binding">SOCIO-ADMINISTRADOR</dd>
+                <dt>Participação</dt>
+                <dt></dt>
+                <dt>Início:</dt>
+                <dd data-data-agt-fac-critica-campo="99" class="ng-binding">
+                    16/03/2018
+                </dd>
+                <dt>Fim:</dt>
+                <dd data-data-agt-fac-critica-campo="100" class="ng-binding">
+                    ?????
+                </dd>
+                <dt>Percentual:</dt>
+                <dd data-data-agt-fac-critica-campo="101" class="ng-binding">
+                    050.00
+                </dd>
+            </dl>
+            <br>
+        </article><!-- end ngRepeat: socio in ctrl.socios --><article ng-repeat="socio in ctrl.socios" class="ng-scope">
+            <dl class="dl-horizontal">
+                <dt>Número:</dt>
+                <dd data-data-agt-fac-critica-campo="1" class="ng-binding">
+                    2224221
+                </dd>
+                <dt>CPF/CNPJ:</dt>
+                <dd data-data-agt-fac-critica-campo="101" class="ng-binding">
+                    63620030120
+                </dd>
+                <dt>Resp. pela assinatura da FAC:</dt>
+                <dd data-data-agt-fac-critica-campo="102" class="ng-binding">
+                    Não
+                </dd>
+                <dt>Nome:</dt>
+                <dd data-data-agt-fac-critica-campo="103" class="ng-binding">
+                    UAIRES LIMA DA SILVA
+                </dd>
+                <dt>RG:</dt>
+                <dd data-data-agt-fac-critica-campo="104" class="ng-binding">
+                    1500628
+                </dd>
+                <dt>Orgão expedidor:</dt>
+                <dd data-data-agt-fac-critica-campo="105" class="ng-binding">
+                    SSP
+                </dd>
+                <dt>UF:</dt>
+                <dd data-data-agt-fac-critica-campo="106" class="ng-binding">
+                    DF
+                </dd>
+                <dt>Data expedição:</dt>
+                <dd data-data-agt-fac-critica-campo="107" class="ng-binding">
+                    23/08/1997
+                </dd>
+                <dt>Logradouro:</dt>
+                <dd data-data-agt-fac-critica-campo="109" class="ng-binding">
+                    CONDOMINIO IMPERIO DOS NOBRES QD 01 CJ F CS 09
+                </dd>
+                <dt>Bairro:</dt>
+                <dd data-data-agt-fac-critica-campo="110" class="ng-binding">
+                    SOBRADINHO
+                </dd>
+                <dt>Cidade:</dt>
+                <dd data-data-agt-fac-critica-campo="111" class="ng-binding">
+                    BRASILIA
+                </dd>
+                <dt>UF:</dt>
+                <dd data-data-agt-fac-critica-campo="112" class="ng-binding">
+                    DF
+                </dd>
+                <dt>DDD:</dt>
+                <dd data-data-agt-fac-critica-campo="113" class="ng-binding">
+                    61
+                </dd>
+                <dt>Telefone:</dt>
+                <dd data-data-agt-fac-critica-campo="114" class="ng-binding">
+                    8292-5370
+                </dd>
+                <dt>CEP:</dt>
+                <dd data-agt-fac-critica-campo="108" class="ng-binding vermelho">
+                    73.252-122</dd>
+                <dt>Cargo:</dt>
+                <dd data-data-agt-fac-critica-campo="115" class="ng-binding">SOCIO</dd>
+                <dt>Participação</dt>
+                <dt></dt>
+                <dt>Início:</dt>
+                <dd data-data-agt-fac-critica-campo="116" class="ng-binding">
+                    16/03/2018
+                </dd>
+                <dt>Fim:</dt>
+                <dd data-data-agt-fac-critica-campo="117" class="ng-binding">
+                    ?????
+                </dd>
+                <dt>Percentual:</dt>
+                <dd data-data-agt-fac-critica-campo="118" class="ng-binding">
+                    050.00
+                </dd>
+            </dl>
+            <br>
+        </article><!-- end ngRepeat: socio in ctrl.socios -->
+    </article>
+</section>
+
+<section class="panel panel-default ng-scope ng-hide" ng-show="ctrl.administradores != null &amp;&amp; ctrl.administradores.length &gt; 0">
+    <header class="panel-heading">
+        <h4 class="panel-title">Administrador não sócio/Procurador</h4>
+    </header>
+    <article class="panel-body">
+        <!-- ngRepeat: socio in ctrl.administradores -->
+    </article>
+</section>
+
+<section class="panel panel-default ng-scope">
+    <header class="panel-heading">
+        <h4 class="panel-title">Regime de tributação</h4>
+    </header>
+    <article class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Regime ISS:</dt>
+            <dd data-data-agt-fac-critica-campo="3549" class="ng-binding">
+                00-REGIME NORMAL DE APURACAO - ISS
+            </dd>
+            <dt>Faixa:</dt>
+            <dd data-data-agt-fac-critica-campo="3550" class="ng-binding">
+                ?????
+            </dd>
+            <dt>Data do regime:</dt>
+            <dd data-data-agt-fac-critica-campo="3551" class="ng-binding">
+                16/03/2018
+            </dd>
+            <dt>Motivo:</dt>
+            <dd data-data-agt-fac-critica-campo="3552" class="ng-binding">
+                01-POR OPCAO - REQUERIMENTO DO CONTRIBUINTE
+            </dd>
+            <dt>Regime ICMS:</dt>
+            <dd data-data-agt-fac-critica-campo="3553" class="ng-binding">
+                ?????
+            </dd>
+            <dt>Faixa:</dt>
+            <dd data-data-agt-fac-critica-campo="3554" class="ng-binding">
+                ?????
+            </dd>
+            <dt>Data do regime:</dt>
+            <dd data-data-agt-fac-critica-campo="3555" class="ng-binding">
+                
+            </dd>
+            <dt>Motivo:</dt>
+            <dd data-data-agt-fac-critica-campo="3556" class="ng-binding">
+                ?????
+            </dd>
+        </dl>
+    </article>
+</section>
+
+<section class="panel panel-default ng-scope">
+    <header class="panel-heading">
+        <h4 class="panel-title">Agência de atendimento</h4>
+    </header>
+    <article class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Local de atendimento:</dt>
+            <dd class="ng-binding">
+                112-AGENCIA BRASILIA</dd>
+        </dl>
+    </article>
+</section>
+
+<section ng-hide="!ctrl.exibirCriticas" class="ng-scope ng-hide">
+    <header><h3>Relação de erros/Aletas de preenchimento</h3></header>
+    <section class="panel panel-warning">
+        <header class="panel-heading">
+            <h4 class="panel-title">1)Alertas - Não impedem o envio da solicitação</h4>
+        </header>
+        <article class="panel-body">
+            <table class="table table-bordered">
+                <tbody>
+                    <!-- ngRepeat: critica in ctrl.criticasAviso -->
+                </tbody>
+            </table>
+        </article>
+    </section>
+    <section class="panel panel-danger">
+        <header class="panel-heading">
+            <h4 class="panel-title">2)Erros - Impedem o envio da Solicitação </h4>
+        </header>
+        <article class="panel-body">
+            <table class="table table-bordered">
+                <tbody>
+                    <!-- ngRepeat: critica in ctrl.criticasErro -->
+                </tbody>
+            </table>
+        </article>
+    </section>
+
+</section>
+<footer class="local-botoes ng-scope">
+    <a class="btn btn-default" href="#" ng-click="ctrl.voltar($event)">Voltar</a>
+    <input class="btn btn-default ng-hide" ng-show="ctrl.fac.Situacao &lt;= 2" value="Cancelar" ng-click="ctrl.cancelarFac()" type="button">
+    <input class="btn btn-default ng-hide" ng-show="ctrl.fac.Situacao &gt; 1" value="Imprimir Requerimento" ng-click="ctrl.imprimirFac()" type="button">
+    <a class="btn btn-primary" href="#" ng-disabled="ctrl.temErros" ng-click="ctrl.avancar($event)">Avançar</a>
+</footer>
+</div>
+    </div>
+</div>
+
+
+
+
+        </div>
+    </div>
+    <div class="agt-footer hidden-print">
+        Todos os direitos reservados - 2015 Secretaria de Estado de Fazenda do Distrito Federal
+    </div>
+
+    
+    <!-- Scripts que não usam Angular -->
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/shims.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/jquery.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/jquery_002.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/moment.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/FileSaver.js"></script>
+
+    <!-- Scripts que usam Angular -->
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/angular.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/angular-locale_pt-br.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/angular-route.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/angular-animate.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/angular-cookies.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/ui-bootstrap-tpls.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/angular-ui.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/angular-ui-router.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/angular-input-masks.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/ngStorage.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/angular-loading-bar.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/smart-table.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/angular-strap_002.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/angular-strap.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/ng-mask.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/agt.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/FACServico.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/FACController.js"></script>
+    
+<script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/Passo1.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/Passo2.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/Passo3.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/Passo4.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/Passo5.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/Passo6.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/Passo7.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/Passo8.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/Passo9.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/Passo10.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/PedidoInscricao.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/ConfirmacaoEnvio.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/FAC.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Imprimir%20Ficha%20Cadastral_arquivos/angular-input-masks.js"></script>
+
+
+
+</body></html>

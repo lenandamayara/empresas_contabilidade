@@ -1,0 +1,62 @@
+/* CSS Document */
+
+/** CSS - TV1.COM
+*   SECOM - secretaria de comunicação social da presidência da república
+*   Desenvolvido por: 
+*
+*   - Marco Antonio Coelho dos Santos [mcoelho@tv1.com.br]
+*   Início do Projeto: 23/10/2009
+*   �?ltima atualização: 
+*   Atualizado por: 
+*/
+
+/*
+Alterado por Rodrigo Vieira em 26/02/2010
+*/
+
+body{ 
+	margin:0; 
+	padding:0;
+}
+
+/* HEADER 100% --------------------------------------------------------------------------------------*/
+
+#HeaderFixed,
+#HeaderPorcent, .HeaderBg1, .HeaderBg2{
+	height:35px;
+	margin:0;
+	padding:0;
+}
+
+#HeaderFixed,
+#HeaderPorcent{
+background:url(/images/bgHeader2.jpg) repeat-x top;
+}
+
+#HeaderFixed {
+width:980px;
+margin:0 auto;
+}
+
+.HeaderBg1{
+	background: url(/images/bgHeader1.jpg) no-repeat left top;
+}
+
+.HeaderBg2{
+	float:right;
+	width:121px;
+}
+
+.HeaderText{
+	font:0.6em Arial, Helvetica, sans-serif;
+	color:#000;
+	padding:3px 0 0 46px;
+	float:left;
+
+}
+
+.HTextBrasil{
+	font:bold 1.4em Arial, Helvetica, sans-serif;
+	color:#0a7636;
+	display:block;
+}

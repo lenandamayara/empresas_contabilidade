@@ -1,0 +1,6 @@
+Name: Montserrat
+URL:  https://fonts.google.com/specimen/Montserrat
+
+Name: Cinzel
+URL:  https://fonts.google.com/specimen/Cinzel
+

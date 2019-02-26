@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html data-ng-app="FAC" data-agt-area-acesso="publica" class="ng-scope"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style>
+    <title>Agenci@Net - FAC - Confirmação de envio</title>
+
+    <meta name="fragment" content="!">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="prefetch" href="http://publica.agnet.fazenda.df.gov.br//FAC/SolicitarInscricao/'~/Imagens/ajax-loader3.gif">
+    <link rel="stylesheet" href="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/agt.css" data-contraste="/Css/agt-contraste.min.css">
+    <link rel="stylesheet" href="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/angular-loading-bar.css">
+
+    
+    
+
+</head>
+<body class="aud">
+    <div class="carregando ng-isolate-scope">                     <div id="bloqueio-tela" class="bloqueio-tela ng-hide" ng-show="isLoading()" style=""></div>                     <div id="caixa-carregando" class="caixa-carregando ng-hide" ng-show="isLoading()" style="">                         <div class="caixa-carregando-conteudo">                             <img src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/ajax-loader3.gif">                             <span>                                 <h4 style="display: inline">                                     <b>carregando</b>                                 </h4>                             </span>                         </div>                     </div></div>
+    <div>
+        <div class="container-fluid">
+            
+
+
+
+
+
+
+<div ng-controller="AbasController" class="ng-scope">
+    <ul class="nav nav-tabs hidden-print" ng-hide="esconderAbas" role="tablist" style="">
+        <li id="li-Passo1" ng-class="{active: passo == 'Passo1'}" class="">
+            <a href="#" id="passo1" ng-click="selecionarPasso('/Passo1', $event)">Identificação</a>
+        </li>
+        <li id="li-Passo2" ng-class="{active: passo == 'Passo2', disabled: !registrado}" class="">
+            <a href="#" id="passo2" ng-click="selecionarPasso('/Passo2', $event)">Estabelecimento</a>
+        </li>
+        <li id="li-Passo3" ng-class="{active: passo == 'Passo3', disabled: !registrado}" class="">
+            <a href="#" id="passo3" ng-click="selecionarPasso('/Passo3', $event)">Qualificação</a>
+        </li>
+        <li id="li-Passo4" ng-class="{active: passo == 'Passo4', disabled: !registrado}" class="">
+            <a href="#" id="passo4" ng-click="selecionarPasso('/Passo4', $event)">Contabilista</a>
+        </li>
+        <li id="li-Passo5" ng-class="{active: passo == 'Passo5', disabled: !registrado}" class="">
+            <a href="#" id="passo5" ng-click="selecionarPasso('/Passo5', $event)">Quadro societário</a>
+        </li>
+        <li id="li-Passo6" ng-class="{active: passo == 'Passo6', disabled: !registrado}" class="">
+            <a href="#" id="passo6" ng-click="selecionarPasso('/Passo6', $event)">Administrador não sócio</a>
+        </li>
+        <li id="li-Passo7" ng-class="{active: passo == 'Passo7', disabled: !registrado}" class="">
+            <a href="#" id="passo7" ng-click="selecionarPasso('/Passo7', $event)">Regime</a>
+        </li>
+        <li id="li-Passo8" ng-class="{active: passo == 'Passo8', disabled: !registrado}" class="">
+            <a href="#" id="passo8" ng-click="selecionarPasso('/Passo8', $event)">Relatório de crítica</a>
+        </li>
+        <li id="li-Passo9" ng-class="{active: passo == 'Passo9', disabled: !registrado}" class="">
+            <a href="#" id="passo9" ng-click="selecionarPasso('/Passo9', $event)">Imprimir ficha</a>
+        </li>
+        <li id="li1" ng-class="{active: passo == 'Passo10', disabled: !registrado}" class="">
+            <a href="#" id="A1" ng-click="selecionarPasso('/Passo10', $event)">Enviar solicitação</a>
+        </li>
+    </ul>
+    <div class="tab-content" ng-init="goto='SolicitarInscricao'">
+        <!-- ngView:  --><div class="tab-pane active ng-scope" ng-view=""><section class="bs-callout bs-callout-success hidden-print ng-scope">
+    <header> 
+        <h3>Confirmação de envio</h3>
+    </header>
+
+    <article class="textos-menores">
+        <p>Prezado Contribuinte,</p>
+
+        <p>A solicitação foi enviada com sucesso!</p>
+        <p>
+            É necessário que você imprima
+            o pedido de inclusão/alteração de dados cadastrais
+            (FAC).
+        </p>
+        <p>
+            Este pedido deve ser assinado pelo representante
+            da empresa e entregue, juntamente com a documentação
+            necessária, em uma das agências da Receita.
+        </p>
+        <p>Para imprimir o pedido clique no botão "Imprimir".</p>
+    </article>
+</section>
+
+<div ng-controller="PedidoInscricaoController as ctrl" class="ng-scope">
+    <!-- ngInclude: ctrl.templateUrl --><div ng-include="ctrl.templateUrl" class="ng-scope"><style class="ng-scope">
+    @media print {
+        a[href]:after {
+            content: none;
+        }
+    }
+</style>
+<br class="ng-scope"><div class="pull-right ng-scope"><a href="javascript:print();">Imprimir Requerimento</a>  </div>
+<table class="fonte ng-scope" style="BORDER-RIGHT: white 1px solid; BORDER-TOP: white 0px solid; BORDER-LEFT: white 0px solid; WIDTH: 600px; BORDER-BOTTOM: white 0px solid" border="0" cellspacing="0" cellpadding="0">
+    <tbody><tr>
+        <td>
+            <table class="fonte" style="BORDER-RIGHT: black 0px solid; BORDER-TOP: black 0px solid; BORDER-LEFT: black 0px solid; WIDTH: 600px; BORDER-BOTTOM: black 0px solid" border="0" cellspacing="0" cellpadding="0">
+                <tbody><tr>
+                    <td>
+                        <table bordercolorlight="#0" class="fonte" style="BORDER-RIGHT: white 0px solid; BORDER-TOP: white 0px solid; BORDER-LEFT: white 0px solid; WIDTH: 600px; BORDER-BOTTOM: white 0px solid; HEIGHT: 20px" border="0" cellspacing="1" cellpadding="0">
+                            <tbody><tr valign="middle">
+                                <td width="18%" height="58">
+                                    <div align="center">
+                                        <strong><font size="2" face="Arial, Helvetica, sans-serif"><img src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/logo-gdf.jpg" width="80" height="80"></font></strong><br>
+                                    </div>
+                                </td>
+                                <td width="82%" height="58">
+                                    <div align="left">
+                                        <strong>
+                                            <font ng-show="ctrl.fac.TipoSolicitacao == 1" class="" style="" size="2" face="Arial, Helvetica, sans-serif">
+                                                CADASTRO FISCAL DO 
+DISTRITO FEDERAL REQUERIMENTO DE (inscrição) NÚMERO DE ACOMPANHAMENTO DE
+ SERVIÇO
+                                            </font>
+                                            <font ng-show="ctrl.fac.TipoSolicitacao == 2" class="ng-hide" size="2" face="Arial, Helvetica, sans-serif">
+                                                CADASTRO FISCAL DO 
+DISTRITO FEDERAL REQUERIMENTO DE (alteração) NÚMERO DE ACOMPANHAMENTO DE
+ SERVIÇO
+                                            </font>
+                                        </strong>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+<table class="fonte ng-scope" style="BORDER-RIGHT: white 0px solid; BORDER-TOP: white 0px solid; BORDER-LEFT: white 0px solid; WIDTH: 600px; BORDER-BOTTOM: white 0px solid" border="0" cellspacing="0" cellpadding="0">
+    <tbody><tr>
+        <td>
+            <table class="fonte" style="BORDER-RIGHT: white 1px solid; BORDER-TOP: white 0px solid; BORDER-LEFT: white 0px solid; WIDTH: 600px; BORDER-BOTTOM: white 0px solid" border="0" cellspacing="0" cellpadding="0">
+                <tbody><tr>
+                    <td>
+
+                        <table class="fonte" style="BORDER-RIGHT: black 0px solid; BORDER-TOP: black 0px solid; BORDER-LEFT: black 0px solid; WIDTH: 600px; BORDER-BOTTOM: black 0px solid" border="0" cellspacing="0" cellpadding="0">
+                            <tbody><tr>
+                                <td>
+                                    <table bordercolorlight="#0" class="fonte" style="BORDER-RIGHT: white 0px solid; BORDER-TOP: white 0px solid; BORDER-LEFT: white 0px solid; WIDTH: 600px; BORDER-BOTTOM: white 0px solid; HEIGHT: 20px" border="0" cellspacing="3" cellpadding="0">
+                                        <tbody><tr>
+                                            <td colspan="2">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">&nbsp;</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td width="150">&nbsp;<strong>Natureza da Solicitação:</strong></td>
+                                            <td ng-show="ctrl.fac.TipoSolicitacao == 1" class="" style="" width="373">Solicitação de Inscrição no Cadastro Fiscal do Distrito Federal</td>
+                                            <td ng-show="ctrl.fac.TipoSolicitacao == 2" class="ng-hide" width="373">Solicitação de Alteração no Cadastro Fiscal do Distrito Federal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;<strong>Constribuinte sujeito a Tributação do:</strong></td>
+                                            <td class="ng-binding">ISS EMPRESA</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;<strong>Número do Comprovante:</strong></td>
+                                            <td class="ng-binding">2224221</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;<strong>Data da Solicitação:</strong></td>
+                                            <td class="ng-binding">16/03/2018</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;<strong>Número da FAC:</strong></td>
+                                            <td class="ng-binding">1013784321</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <div align="justify">
+                                                    <br>
+                                                    <strong>Prezado Contribuinte:</strong><br>
+                                                    Encontram-se 
+armazenadas nos computadores da Secretaria de Estado de Fazenda do 
+Governo do Distrito Federal as
+                                                    informações 
+transmitidas de sua solicitação de inscrição no Cadastro Fiscal do 
+Distrito Federal - CFDF.
+                                                    Para prosseguimento 
+desta solicitação, pedimos que seja encaminhado, à repartição fazendária
+ e no prazo máximo indicado,
+                                                    este requerimento e a
+ 
+                                                    
+                                                    <a ng-show="ctrl.fac.TipoSolicitacao == 2" href="http://publica.agnet.fazenda.df.gov.br//FAC/docs/F52facdocs.pdf" class="ng-hide">
+                                                        documentação necessária para a inscrição
+                                                    </a> <a ng-show="ctrl.fac.TipoSolicitacao == 1" href="http://publica.agnet.fazenda.df.gov.br//FAC/docs/F52facdocsInsc.pdf" class="" style="">
+                                                        documentação necessária para a inscrição
+                                                    </a>.<br>
+                                                    A partir de agora, o
+ acompanhamento deste seu pedido deverá ser feito no site <a href="http://www.fazenda.df.gov.br/">www.fazenda.df.gov.br</a>, no link "agenci@net", utilizando o <strong>número de acompanhamento de serviço</strong> acima fornecido. <br>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                    <table bordercolorlight="#0" class="fonte" style="BORDER-RIGHT: white 0px solid; BORDER-TOP: white 0px solid; BORDER-LEFT: white 0px solid; WIDTH: 600px; BORDER-BOTTOM: white 0px solid; HEIGHT: 20px" border="0" cellspacing="1" cellpadding="0">
+                                        <tbody><tr>
+                                            <td colspan="4" align="center"> <strong>Informações do Requerente</strong> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Inscrição no CF/DF:</strong></td>
+                                            <td class="ng-binding">  .   .   /   -</td>
+                                            <td><strong>CPF/CNPJ:</strong></td>
+                                            <td class="ng-binding" width="30%"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Nome Empresarial:</strong></td>
+                                            <td colspan="3" class="ng-binding">LIMA E OLIVEIRA CONTABILIDADE LTDA ME</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Endereço:</strong></td>
+                                            <td colspan="3" class="ng-binding">SAU/S QD 3 BL C NUMERO 22 SALA 605</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Atividade ISS:</strong></td>
+                                            <td colspan="3" class="ng-binding">ATIVIDADES DE CONTABILIDADE</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Regime Tributação ISS:</strong></td>
+                                            <td colspan="3" class="ng-binding">REGIME NORMAL DE APURACAO</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Atividade ICMS:</strong></td>
+                                            <td colspan="3" class="ng-binding"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Regime Tributação ICMS:</strong></td>
+                                            <td colspan="3" class="ng-binding"></td>
+                                        </tr>
+                                    </tbody></table>
+                                    <table bordercolorlight="#0" class="fonte" style="BORDER-RIGHT: white 0px solid; BORDER-TOP: white 0px solid; BORDER-LEFT: white 0px solid; BORDER-BOTTOM: white 0px solid; HEIGHT: 20px" width="100%" border="0" cellspacing="1" cellpadding="0">
+                                        <tbody><tr>
+                                            <td colspan="6">
+                                                <div align="center">
+                                                    <br>
+                                                    <strong class="ng-binding">Prazo Máximo: (15/04/2018)</strong>
+                                            </div></td>
+                                        </tr>
+                                        <tr>
+                                    </tr></tbody></table>
+                                    <table bordercolorlight="#0" class="fonte" style="BORDER-RIGHT: white 0px solid; BORDER-TOP: white 0px solid; BORDER-LEFT: white 0px solid; WIDTH: 600px; BORDER-BOTTOM: white 0px solid; HEIGHT: 20px" border="0" cellspacing="1" cellpadding="0">
+                                        <tbody><tr>
+                                            <td>
+                                                <div align="center">
+                                                    <strong>
+                                                        Atenção:&nbsp;&nbsp;<br>
+                                                        <br>
+                                                    </strong>
+                                            </div></td>
+                                            <td colspan="5"><div align="justify">O
+ não comparecimento ou a falta de entrega dos documentos indicados até a
+ data acima indicada implicará o indeferimento automático deste pedido.</div></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="6" style="HEIGHT: 2px"></td>
+                                        </tr>
+                                    </tbody></table>
+                                    <table bordercolorlight="#0" class="fonte" style="BORDER-RIGHT: white 0px solid; BORDER-TOP: white 0px solid; BORDER-LEFT: white 0px solid; WIDTH: 600px; BORDER-BOTTOM: white 0px solid; HEIGHT: 20px" border="0" cellspacing="1" cellpadding="0">
+                                        <tbody><tr>
+                                            <td>
+                                                <table bordercolorlight="#0" class="fonte" style="BORDER-RIGHT: white 0px solid; BORDER-TOP: white 0px solid; BORDER-LEFT: white 0px solid; WIDTH: BORDER-BOTTOM: white 0px solid; HEIGHT: 20px" width="300" border="0" cellspacing="1" cellpadding="0">
+                                                    <tbody><tr>
+                                                        <td colspan="2"><strong>Responsável pela solicitação</strong></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="88">Nome Completo:</td>
+                                                        <td class="ng-binding" width="209">LENANDA MAYARA BARBOSA OLIVEIRA</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>CPF:</td>
+                                                        <td class="ng-binding">035.352.801-33</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" class="ng-binding">
+                                                            <br>
+                                                            (local) ______________________, 16/03/2018 <br>
+                                                            <br>
+                                                            <br>
+                                                            Assinatura_____________________________<br>
+                                                            <br>
+                                                            <font size="-3">
+                                                                1ª via - Repartição Fazendaria<br>
+                                                                2ª via - Requerente
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </tbody></table>
+                                            </td>
+                                            <td>&nbsp;&nbsp;</td>
+                                            <td>
+                                                <h4>Dados Contabilista CRC</h4>
+                                                <p style="margin:0" class="ng-binding"><b>CFDF:</b>   .   .   /   -</p>
+                                                <p style="margin:0" class="ng-binding"><b>CPF/CNPJ:</b> 636.200.301-20</p>
+                                                <p style="margin:0" class="ng-binding"><b>Nome:</b> UAIRES LIMA DA SILVA</p>
+                                                <p style="margin:0" class="ng-binding"><b>CRC:</b> 012712</p>
+                                                <p style="margin:0"><b>Assinatura&nbsp;Contabilista:</b></p>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <br>
+                                    * Para impressão deste documento, configure todas as margens do documento para 1cm
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+<article ng-show="ctrl.criticasAviso.length &gt; 0" class="ng-scope" style="">
+    <header>
+        <h4>Relação de erros/Alertas de preenchimento</h4>
+    </header>
+    <table class="table table-bordered small">
+        <tbody>
+            <!-- ngRepeat: critica in ctrl.criticasAviso --><tr ng-repeat="critica in ctrl.criticasAviso" class="ng-scope">
+                <td class="ng-binding">902</td>
+                <td class="ng-binding">Sócio com pendência cadastral. 
+Caso essa pendência não seja resolvida, sua solicitação poderá ser 
+recusada na agência de atendimento. Se possível, tente solucionar a 
+pendência antes de dar entrada na solicitação. </td>
+            </tr><!-- end ngRepeat: critica in ctrl.criticasAviso --><tr ng-repeat="critica in ctrl.criticasAviso" class="ng-scope">
+                <td class="ng-binding">910</td>
+                <td class="ng-binding">Existe contribuinte ATIVO para a inscrição imobiliária informada no PASSO 2.</td>
+            </tr><!-- end ngRepeat: critica in ctrl.criticasAviso -->
+        </tbody>
+    </table>
+</article>
+
+
+</div>
+</div></div>
+    </div>
+</div>
+
+
+
+
+        </div>
+    </div>
+    <div class="agt-footer hidden-print">
+        Todos os direitos reservados - 2015 Secretaria de Estado de Fazenda do Distrito Federal
+    </div>
+
+    
+    <!-- Scripts que não usam Angular -->
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/shims.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/jquery.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/jquery_002.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/moment.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/FileSaver.js"></script>
+
+    <!-- Scripts que usam Angular -->
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/angular.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/angular-locale_pt-br.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/angular-route.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/angular-animate.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/angular-cookies.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/ui-bootstrap-tpls.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/angular-ui.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/angular-ui-router.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/angular-input-masks.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/ngStorage.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/angular-loading-bar.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/smart-table.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/angular-strap_002.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/angular-strap.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/ng-mask.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/agt.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/FACServico.js"></script>
+    <script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/FACController.js"></script>
+    
+<script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/Passo1.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/Passo2.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/Passo3.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/Passo4.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/Passo5.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/Passo6.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/Passo7.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/Passo8.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/Passo9.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/Passo10.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/PedidoInscricao.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/ConfirmacaoEnvio.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/FAC.js"></script>
+<script src="Agenci@Net%20-%20FAC%20-%20Confirma%C3%A7%C3%A3o%20de%20envio_arquivos/angular-input-masks.js"></script>
+
+
+
+</body></html>
